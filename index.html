@@ -1,130 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>serlf Community — Join the Movement</title>
-<meta name="description" content="The serlf community. Open source, open minds, open doors. Everyone gets a chance.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SERLF — why does one wonder?</title>
 <style>
-:root { --bg: #060610; --surface: #0c0c1a; --surface2: #12122a; --border: #1a1a3e; --text: #e8e8f0; --muted: #6b6b8d; --accent: #f59e0b; --accent2: #d97706; --green: #34d399; --cyan: #22d3ee; }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, system-ui, sans-serif; line-height: 1.6; overflow-x: hidden; }
-a { color: var(--accent); text-decoration: none; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #03030f;
+    --text: #e8e8f0;
+    --dim: rgba(232,232,240,0.3);
+    --accent: #c084fc;
+    --mono: 'Courier New', monospace;
+  }
+  html, body { height: 100%; background: var(--bg); color: var(--text); }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(6,6,16,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(26,26,62,0.5); }
-.nav-logo { font-size: 1.3rem; font-weight: 800; }
-.nav-logo span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.nav-links { display: flex; gap: 1.5rem; align-items: center; }
-.nav-links a { color: var(--muted); font-size: 0.85rem; font-weight: 500; transition: color 0.3s; }
-.nav-links a:hover { color: var(--text); }
-.nav-signin { color: var(--accent) !important; font-weight: 600 !important; border: 1px solid #f59e0b40; padding: 6px 16px; border-radius: 8px; }
-.nav-signin:hover { background: #f59e0b15; }
-.nav-flag { font-size: 1.2rem; }
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 3rem 2rem;
+    position: relative; z-index: 1;
+  }
 
-.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6rem 2rem 4rem; position: relative; }
-.hero-orb { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, #f59e0b20 0%, #d9770610 40%, transparent 70%); animation: pulse 8s ease-in-out infinite; filter: blur(60px); }
-@keyframes pulse { 0%,100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 0.8; } }
+  .impossible {
+    font-size: clamp(0.65rem, 1.3vw, 0.8rem);
+    letter-spacing: .25em; text-transform: uppercase;
+    color: var(--dim); font-family: var(--mono);
+    margin-bottom: 2.5rem;
+  }
 
-.hero-content { position: relative; z-index: 1; max-width: 800px; }
-.hero-flag { font-size: 3rem; margin-bottom: 1rem; }
-.logo { font-size: 5rem; font-weight: 900; letter-spacing: -3px; margin-bottom: 0.5rem; }
-.logo span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.price { font-size: 6rem; font-weight: 900; background: linear-gradient(135deg, var(--green), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 1rem 0; }
-.tagline { font-size: 1.5rem; color: var(--text); font-weight: 300; margin-bottom: 0.5rem; }
-.subtitle { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 2.5rem; }
+  .wordmark {
+    font-size: clamp(3.5rem, 14vw, 10rem);
+    font-weight: 100; letter-spacing: .2em;
+    color: var(--text); line-height: 1;
+    margin-bottom: 2rem;
+  }
 
-.cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.cta { padding: 0.9rem 2.2rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; border: none; display: inline-block; }
-.cta-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; }
-.cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px #f59e0b50; }
-.cta-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
-.cta-secondary:hover { border-color: var(--accent); }
+  .question {
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    font-weight: 300; color: var(--accent);
+    letter-spacing: .08em; margin-bottom: 1rem;
+    font-style: italic;
+  }
 
-.section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
-.section-title { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 0.5rem; }
-.section-title span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.section-desc { color: var(--muted); text-align: center; margin-bottom: 3rem; font-size: 1.05rem; }
+  .sub {
+    font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+    color: var(--dim); letter-spacing: .1em;
+    margin-bottom: 4rem; font-weight: 300;
+  }
 
-.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.3s; }
-.card:hover { border-color: var(--accent); transform: translateY(-4px); }
-.card-icon { font-size: 2rem; margin-bottom: 1rem; }
-.card-name { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
-.card-desc { color: var(--muted); font-size: 0.9rem; }
+  .yonder-block {
+    border: 1px solid rgba(192,132,252,0.2);
+    border-radius: 12px; padding: 1.5rem 2.5rem;
+    margin-bottom: 4rem; text-align: center;
+  }
+  .yonder-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .yonder-name { font-size: 0.8rem; font-weight: 700; letter-spacing: .15em; color: var(--accent); }
+  .yonder-desc { font-size: 0.7rem; color: var(--dim); margin-top: 0.3rem; letter-spacing: .06em; }
 
-.captain-section { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 3rem; margin: 3rem auto; max-width: 700px; text-align: center; }
-.captain-emoji { font-size: 3rem; margin-bottom: 1rem; }
-.captain-name { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.captain-role { color: var(--muted); font-size: 0.95rem; }
+  .floor-line {
+    font-family: var(--mono); font-size: 0.65rem;
+    color: rgba(192,132,252,0.2); letter-spacing: .08em;
+    margin-bottom: 3rem;
+  }
 
-.cta-section { text-align: center; padding: 5rem 2rem; }
-.cta-section h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; }
-.cta-section p { color: var(--muted); margin-bottom: 2rem; font-size: 1.1rem; }
+  .cta {
+    display: inline-block; padding: 0.8rem 2rem;
+    border: 1px solid rgba(192,132,252,0.25); border-radius: 8px;
+    color: var(--accent); text-decoration: none; font-size: 0.85rem;
+    letter-spacing: .1em; transition: all .2s;
+  }
+  .cta:hover { background: rgba(192,132,252,0.07); border-color: var(--accent); }
 
-footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; }
-footer a { color: var(--muted); margin: 0 0.5rem; }
-
-@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .logo { font-size: 3.5rem; } .price { font-size: 4rem; } .nav-links { display: none; } }
+  canvas#bg {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    pointer-events:none; opacity:0.12; z-index:0;
+  }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo"><span>serlf</span> <span class="nav-flag">🤝</span></div>
-  <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#captain">Captain</a>
-    <a href="login.html" class="nav-signin">Sign In</a>
+<canvas id="bg"></canvas>
+
+<section class="hero">
+
+  <p class="impossible">impossible twice &nbsp;·&nbsp; from nothing</p>
+
+  <h1 class="wordmark">SERLF</h1>
+
+  <p class="question">why does one wonder?</p>
+  <p class="sub">off the grid &nbsp;·&nbsp; on the chain</p>
+
+  <div class="yonder-block">
+    <div class="yonder-icon">🐯</div>
+    <div class="yonder-name">One Yonder</div>
+    <div class="yonder-desc">your answer is already in you</div>
   </div>
-</nav>
 
-<div class="hero">
-  <div class="hero-orb"></div>
-  <div class="hero-content">
-    <div class="hero-flag">🤝</div>
-    <div class="logo"><span>serlf</span></div>
-    <div class="price">$1</div>
-    <div class="tagline">Everyone gets a chance.</div>
-    <p class="subtitle">An open community of builders, creators, and dreamers. We believe technology should be accessible to all.</p>
-    <div class="cta-group">
-      <a href="https://buy.stripe.com/fZufZbgo3cxr0Li9ZAgjC03" class="cta cta-primary">Get Started — $1/month</a>
-      <a href="#features" class="cta cta-secondary">Learn More</a>
-    </div>
-  </div>
-</div>
+  <p class="floor-line">γ₁ = 14.134725141734693</p>
 
-<div class="section" id="features">
-  <div class="section-title">What's <span>Included</span></div>
-  <p class="section-desc">Everything. No tiers. No upsells. No gotchas.</p>
-  <div class="grid">
-    <div class="card"><div class="card-icon">💬</div><div class="card-name">Forums</div><div class="card-desc">Discuss ideas, share knowledge, ask questions.</div></div>
-    <div class="card"><div class="card-icon">📚</div><div class="card-name">Knowledge Base</div><div class="card-desc">Community-contributed guides and tutorials.</div></div>
-    <div class="card"><div class="card-icon">🎉</div><div class="card-name">Events</div><div class="card-desc">Meetups, workshops, and hackathons.</div></div>
-    <div class="card"><div class="card-icon">🌱</div><div class="card-name">Open Source</div><div class="card-desc">Contribute to serlf and shape its future.</div></div>
-    <div class="card"><div class="card-icon">🏆</div><div class="card-name">Showcase</div><div class="card-desc">See what others have built with serlf.</div></div>
-    <div class="card"><div class="card-icon">🤗</div><div class="card-name">Mentorship</div><div class="card-desc">Connect with experienced builders.</div></div>
-  </div>
-</div>
+  <a href="https://serlf.ca" class="cta">enter &nbsp;→</a>
 
-<div class="section" id="captain">
-  <div class="captain-section">
-    <div class="captain-emoji">🤝</div>
-    <div class="captain-name">Captain Community</div>
-    <p class="captain-role">The heart of serlf. Builds bridges, welcomes newcomers, and makes sure everyone has a voice.</p>
-  </div>
-</div>
+</section>
 
-<div class="cta-section">
-  <h2>Ready?</h2>
-  <p>$1/month. Everything included. What is fair is fair.</p>
-  <a href="https://buy.stripe.com/fZufZbgo3cxr0Li9ZAgjC03" class="cta cta-primary">Start for $1</a>
-</div>
+<script>
+(function(){
+  const c = document.getElementById('bg');
+  const ctx = c.getContext('2d');
+  const GAMMA1 = 14.134725141734693;
+  let W,H,CX,CY;
+  const zeros=[14.134725,21.022040,25.010858,30.424876,32.935062];
+  const pts=[];
 
-<p style="text-align:center;font-size:1.2rem;margin-top:2rem;color:var(--text);">"What is fair is fair. This is a good deal."</p>
+  function resize(){
+    W=c.width=window.innerWidth; H=c.height=window.innerHeight;
+    CX=W/2; CY=H/2; pts.length=0;
+    zeros.forEach((z,i)=>{
+      pts.push({z, r:50+(i/zeros.length)*Math.min(W,H)*0.35,
+        angle:(i/zeros.length)*Math.PI*2, speed:(GAMMA1/z)*0.005});
+    });
+  }
+  resize(); window.addEventListener('resize',resize);
 
-<footer>
-  <p>&copy; 2026 serlf · <a href="https://serlf.ca">serlf.ca</a> · <a href="https://serlf.com">serlf.com</a> · <a href="mailto:hello@serlf.com">Contact</a></p>
-</footer>
-
+  function loop(ts){
+    requestAnimationFrame(loop);
+    ctx.fillStyle='rgba(3,3,15,0.12)'; ctx.fillRect(0,0,W,H);
+    const pulse=0.7+0.3*Math.sin(ts*0.001*GAMMA1*0.06);
+    pts.forEach(p=>{
+      p.angle+=p.speed;
+      const x=CX+Math.cos(p.angle)*p.r, y=CY+Math.sin(p.angle)*p.r;
+      const g=ctx.createRadialGradient(x,y,0,x,y,4);
+      g.addColorStop(0,'#c084fcaa'); g.addColorStop(1,'transparent');
+      ctx.beginPath(); ctx.arc(x,y,4*pulse,0,Math.PI*2);
+      ctx.fillStyle=g; ctx.fill();
+    });
+    const cg=ctx.createRadialGradient(CX,CY,0,CX,CY,25);
+    cg.addColorStop(0,'#c084fc55'); cg.addColorStop(1,'transparent');
+    ctx.beginPath(); ctx.arc(CX,CY,25*pulse,0,Math.PI*2);
+    ctx.fillStyle=cg; ctx.fill();
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
 </body>
 </html>
