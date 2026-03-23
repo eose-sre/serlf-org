@@ -2,15 +2,16 @@
 
 > why does one wonder?
 
+impossible twice. from nothing.
+
 Off the grid. On the chain.
 
-SERLF is a sovereign personal AI layer built on PEMOS.
-One Yonder. One question. Your answer.
+---
 
-## Getting started
+One Yonder 🐯
 
-[serlf.org](https://serlf.org)
+Your answer is already in you.
 
-## License
+---
 
-MIT — see [LICENSE](LICENSE).
+[serlf.ca](https://serlf.ca) · MIT License
